@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="Anime2.jpg" alt="50%" width="50%">
+                        <h1>Prueba</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Prueba</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button>Comprar</button>
+                    </td>
+                    <td>
+                        <img src="Anime2.jpg" alt="50%" width="50%">
+                        <h1>Prueba</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Prueba</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button>Comprar</button>
+                    </td>
+                    <td>
+                        <img src="Anime2.jpg" alt="50%" width="50%">
+                        <h1>Prueba</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Prueba</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button>Comprar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Anime2.jpg" alt="50%" width="50%">
+                        <h1>Prueba</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Prueba</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button>Comprar</button>
+                    </td>
+                    <td>
+                        <img src="Anime2.jpg" alt="50%" width="50%">
+                        <h1>Prueba</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Prueba</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button>Comprar</button>
+                    </td>
+                    <td>
+                        <img src="Anime2.jpg" alt="50%" width="50%">
+                        <h1>Prueba</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Prueba</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button>Comprar</button>
+                    </td>
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+        <script>
+            function fillProducts(data) {
+                var table = document.querySelector("table");
+                for (let json in data) {
+                    let object = data[json];
+                        let imagen = object.strDrinkThumb;
+                        let nombre = object.strDrink;
+                        let ingredient = object.strIngredient1;
+                        let row = table.insertRow();
+
+                        let cell_a = row.insertRow();
+                        cell_a=imagen;
+                }
+            }
+            function getdata() {
+                fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+                .then(response => response.json())
+                .then(data => fillProducts(data));
+            }
+            var boton = document.querySelector("button");
+            
+            getdata();
+        </script>
+    </div>
+</body>
+
+</html>
