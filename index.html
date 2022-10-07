@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container w-75 bg-white mt-3 rounded shadow">
+        <h1 class="align-content-center">COCKTAILS DRINKS</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg" alt="50%" width="50%">
+                        <h1>Margarita</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Tequila,Triple sec,Lime juice,Salt</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button class="btn btn-outline-primary my-1">Comprar</button>
+                    </td>
+                    <td>
+                        <img src="https://www.thecocktaildb.com/images/media/drink/bry4qh1582751040.jpg" alt="50%" width="50%">
+                        <h1>Blue Margarita</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Tequila,Blue Curacao,Lime juice,slt</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button class="btn btn-outline-primary my-1">Comprar</button>
+                    </td>
+                    <td>
+                        <img src="https://www.thecocktaildb.com/images/media/drink/loezxn1504373874.jpg" alt="50%" width="50%">
+                        <h1>Tommy's Margarita</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Tequila,Lime Juice,gave syrup</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button class="btn btn-outline-primary my-1">Comprar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg" alt="50%" width="50%">
+                        <h1>Whitecap Margarita</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Tequila,Lime Juice,gave syrup</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button class="btn btn-outline-primary my-1">Comprar</button>
+                    </td>
+                    <td>
+                        <img src="https://www.thecocktaildb.com/images/media/drink/tqyrpw1439905311.jpg" alt="50%" width="50%">
+                        <h1>Strawberry Margarita</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Strawberry schnapps,Tequila,Triple sec,Lemon juice,Strawberries.</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button class="btn btn-outline-primary my-1">Comprar</button>
+                    </td>
+                    <td>
+                        <img src="https://www.thecocktaildb.com/images/media/drink/dztcv51598717861.jpg" alt="50%" width="50%">
+                        <h1>Smashed Watermelon Margarita</h1>
+                        <h2>Ingredientes</h2>
+                        <p>Watermelon,Mint,Grapefruit Juice,Lime,Tequila,Watermelon,Mint.</p>
+                        <label>Alcoholic</label>
+                        <br>
+                        <button class="btn btn-outline-primary my-1">Comprar</button>
+                    </td>
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+        <script>
+            function fillProducts(data) {
+                var table = document.querySelector("table");
+                for (let json in data) {
+                    let object = data[json];
+                        let imagen = object.strDrinkThumb;
+                        let nombre = object.strDrink;
+                        let ingredient = object.strIngredient1;
+                        let row = table.insertRow();
+
+                        let cell_a = row.insertRow();
+                        cell_a=imagen;
+                }
+            }
+            function getdata() {
+                fetch('www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+                .then(response => response.json())
+                .then(data => fillProducts(data));
+            }
+            var boton = document.querySelector("button");
+            
+            
+        </script>
+    </div>
+</body>
+
+</html>
